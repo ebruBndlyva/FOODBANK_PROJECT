@@ -75,31 +75,31 @@ function Register() {
         ) : null}
         <label htmlFor="customer">Customer</label>
         <input
-          id="restaurant"
+          id="restaurantOwner"
           name="role"
           type="radio"
-          onChange={() => formik.setFieldValue("role", "restaurant")}
+          onChange={() => formik.setFieldValue("role", "restaurantOwner")}
           onBlur={formik.handleBlur}
-          checked={formik.values.role === "restaurant"}
-          value={formik.values.restaurant}
+          checked={formik.values.role === "restaurantOwner"}
+          value={formik.values.restaurantOwner}
         />
-        {formik.touched.restaurant && formik.errors.restaurant ? (
-          <div>{formik.errors.restaurant}</div>
+        {formik.touched.restaurantOwner && formik.errors.restaurantOwner ? (
+          <div>{formik.errors.restaurantOwner}</div>
         ) : null}
-        <label htmlFor="restaurant">Restaurant Owner</label>
+        <label htmlFor="restaurantOwner">Restaurant Owner</label>
         <input
-          id="delivery"
+          id="deliveryBoy"
           name="role"
           type="radio"
-          onChange={() => formik.setFieldValue("role", "delivery")}
+          onChange={() => formik.setFieldValue("role", "deliveryBoy")}
           onBlur={formik.handleBlur}
-          checked={formik.values.role === "delivery"}
-          value={formik.values.delivery}
+          checked={formik.values.role === "deliveryBoy"}
+          value={formik.values.deliveryBoy}
         />
-        {formik.touched.delivery && formik.errors.delivery ? (
-          <div>{formik.errors.delivery}</div>
+        {formik.touched.deliveryBoy && formik.errors.deliveryBoy ? (
+          <div>{formik.errors.deliveryBoy}</div>
         ) : null}
-        <label htmlFor="delivery">Delivery Man</label>
+        <label htmlFor="deliveryBoy">Delivery Man</label>
       </div>
       <div className={style.input}>
         <div className={style.label}>
