@@ -1,0 +1,343 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+/* HERO SECTION */
+.hero {
+  font-family: "Poppins", serif;
+  background-color: #fff9fa;
+  display: flex;
+  align-items: center;
+  min-height: 90vh;
+  .hero_wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    align-items: center;
+    gap: 30px;
+    .hero_desc {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      color: #1f1f39;
+      h1 {
+        font-size: clamp(1.8rem, 6vw, 3.1rem);
+        margin-bottom: 50px;
+      }
+      p {
+        font-size: clamp(1rem, 2vw, 1.4rem);
+      }
+      form {
+        display: flex;
+        align-items: center;
+        padding: 3px 10px 10px 10px;
+        flex-direction: row;
+        justify-content: center;
+        box-shadow: 0px 6px 32px rgba(0, 0, 0, 0.12);
+        margin-top: 10px;
+        border-radius: 40px;
+        width: 100%;
+
+        input {
+          width: 70%;
+          border: none;
+          font-size: 17px;
+          background-color: transparent;
+          &:focus {
+            outline: none;
+          }
+        }
+        a {
+          color: #ee1d48;
+          font-size: 20px;
+          display: flex;
+          align-items: center;
+        }
+        button {
+          padding: 10px 30px;
+          font-size: clamp(0.9rem, 2vw, 1.2rem);
+        }
+      }
+    }
+  }
+  .hero_img {
+    img {
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+}
+/* ORDER SECTION */
+.order_wrapper {
+  padding: 50px 0;
+  font-family: "Poppins", serif;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  color: #1f1f39;
+  .order_head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    h2 {
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      font-weight: 550;
+    }
+    span {
+      font-size: clamp(1rem, 2vw, 1.3rem);
+    }
+  }
+  .order_cards {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    .order_card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      span {
+        font-size: 70px;
+        color: #ee1d48;
+      }
+      h3 {
+        font-size: 23px;
+        text-align: center;
+        font-weight: 600;
+      }
+      p {
+        font-size: 15px;
+        text-align: center;
+      }
+    }
+  }
+}
+/* APP SECTION */
+.app {
+  font-family: "Poppins", serif;
+  background-color: #fff9fa;
+  .app_wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    .app_desc {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+      gap: 20px;
+      color: #1f1f39;
+      h1 {
+        font-size: clamp(1.5rem, 5vw, 3.1rem);
+      }
+      p {
+        font-size: clamp(1rem, 2vw, 1.4rem);
+      }
+      .app_btns {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        a {
+          img {
+            width: 130px;
+            height: 45px;
+            object-fit: cover;
+          }
+        }
+      }
+    }
+  }
+  .app_img {
+    img {
+      width: 100%;
+      object-position: 0 80px;
+    }
+  }
+}
+/* CUISINE SECTION  */
+.cuisine_wrapper {
+  font-family: "Poppins", serif;
+  padding-bottom: 50px;
+  h2 {
+    position: relative;
+    text-align: center;
+    margin: 80px 0;
+    font-size: clamp(1.5rem, 5vw, 3rem);
+    font-weight: 550;
+    color: #1f1f39;
+    &::after {
+      content: "";
+      width: clamp(50px, 10vw, 150px);
+      height: 5px;
+      border-radius: 10px;
+      background-color: #ee1d48;
+      position: absolute;
+      bottom: -20px;
+      left: 43%;
+    }
+  }
+  .cuisine_cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    a {
+      overflow: hidden;
+      position: relative;
+      text-decoration: none;
+      border-radius: 12px;
+      &:hover img {
+        transform: scale(1.1) rotate(4deg);
+      }
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        transition: all 0.3s linear;
+      }
+      h4 {
+        position: absolute;
+        bottom: 0px;
+        left: 0;
+        border-bottom-right-radius: 12px;
+        border-bottom-left-radius: 12px;
+        backdrop-filter: blur(2px);
+        background: linear-gradient(
+          92.22deg,
+          rgba(0, 0, 0, 0.7) 0%,
+          rgba(0, 0, 0, 0.3) 100%
+        );
+        color: white;
+        width: 100%;
+        padding: 12px;
+        overflow: hidden;
+        font-size: 24px;
+        font-weight: 500;
+      }
+    }
+  }
+}
+/* TESTAURANR SECTION */
+.restaurant_wrapper {
+  font-family: "Poppins", serif;
+  padding-bottom: 50px;
+  h2 {
+    position: relative;
+    text-align: center;
+    margin: 80px 0;
+    font-size: clamp(1.5rem, 5vw, 3rem);
+    font-weight: 550;
+    color: #1f1f39;
+    &::after {
+      content: "";
+      width: clamp(50px, 10vw, 150px);
+      height: 5px;
+      border-radius: 10px;
+      background-color: #ee1d48;
+      position: absolute;
+      bottom: -20px;
+      right: 43%;
+    }
+  }
+  .restaurant_cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    .restaurant_card {
+      overflow: hidden;
+      position: relative;
+      text-decoration: none;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s linear;
+      &:hover {
+        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
+      }
+      &:hover img {
+        transform: scale(1.1) rotate(2deg);
+      }
+      .restaurant_img{
+        overflow: hidden;
+      }
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        transition: all 0.3s linear;
+      }
+      .restaurant_desc {
+        display: flex;
+        padding: 10px;
+        gap: 10px;
+        flex-direction: column;
+        border-radius: 0 0 12px 12px;
+        border-top: none;
+        border: 1px solid #e9e5e6;
+        h4 {
+          font-size: 18px;
+          font-weight: 500;
+          color: #160040;
+        }
+        p {
+          font-size: 14px;
+          display: flex;
+          align-items: center;
+          gap: 5px;
+          color: #1f1f39;
+        }
+      }
+    }
+  }
+}
+
+/* ! RESPONSIVE CODE */
+@media screen and (max-width: 992px) {
+  .cuisine_wrapper .cuisine_cards,
+  .restaurant_wrapper .restaurant_cards {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+}
+@media screen and (max-width: 768px) {
+  .hero .hero_wrapper {
+    grid-template-columns: 1fr;
+    padding: 50px 0;
+    form {
+      gap: 5px;
+      input {
+        width: 100%;
+      }
+    }
+  }
+  .order_cards {
+    flex-direction: column;
+  }
+  .app .app_wrapper {
+    flex-direction: column;
+    padding-top: 30px;
+    .app_desc {
+      align-items: center;
+    }
+  }
+  .cuisine_wrapper .cuisine_cards,
+  .restaurant_wrapper .restaurant_cards {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+@media screen and (max-width: 576px) {
+  .hero .hero_wrapper form {
+    button {
+      padding: 5px 10px !important;
+      font-weight: 400;
+    }
+  }
+  .app .app_wrapper .app_desc .app_btns {
+    flex-direction: column;
+  }
+  .cuisine_wrapper .cuisine_cards,
+  .restaurant_wrapper .restaurant_cards {
+    grid-template-columns: 1fr !important;
+  }
+}

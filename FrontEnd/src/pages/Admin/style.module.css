@@ -1,15 +1,13 @@
- 
+.admin_content {
+  width: 100%;
+  display: flex;
+}
 
- .admin_content{
-   width: 100%;
-    display: flex;
-
- }
- 
- .container{
-   width: 75%;
-position: absolute;
-right: 0;
-top: 0;
-   background-color: yellow;
- }
+.container {
+  width: 80%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-color: #eff2f7;
+  min-height: 100vh;
+}

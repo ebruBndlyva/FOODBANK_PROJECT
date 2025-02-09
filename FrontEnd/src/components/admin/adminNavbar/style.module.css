@@ -1,0 +1,115 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+
+.adminNavbar {
+  background-color: #ee1d48;
+}
+.navbar_wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+  padding-bottom: 50px;
+  position: relative;
+}
+.navbar_bars {
+  color: white;
+  font-size: 18px;
+}
+.navbar_right {
+  display: flex;
+  align-items: center;
+  ul {
+    position: relative;
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    gap: 20px;
+    li {
+      display: flex;
+      align-items: center;
+      a {
+        font-family: "Nunito", serif;
+        display: flex;
+        align-items: center;
+        grid-gap: 5px;
+        text-decoration: none;
+        color: white;
+        font-size: 14px;
+        img {
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+        }
+        span {
+          display: flex;
+          align-items: center;
+          &:last-of-type {
+            font-size: 18px;
+          }
+        }
+      }
+      .dropdown_menu {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+        background-color: rgb(255, 255, 255);
+        padding: 10px 0;
+        position: absolute;
+        width: 100%;
+        left: 0;
+        z-index: 10;
+        top: 100%;
+        a {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          font-size: 13px;
+          display: flex;
+          padding: 5px 0px 5px 10px;
+          color: #212529;
+          &:last-of-type {
+            color: #ee1d48;
+          }
+          &:hover {
+            background-color: #eff1f5;
+          }
+          span {
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+          }
+        }
+      }
+    }
+  }
+}
+
+.navbar_nav {
+  font-family: "Nunito", serif;
+  position: absolute;
+  width: 100%;
+  top: 70%;
+  background-color: white;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 25px 20px;
+  h1 {
+    font-size: 24px;
+    color: #34395e;
+    text-transform: capitalize;
+  }
+  a {
+    text-decoration: none;
+    color: #6c757d;
+    font-size: 12px;
+  
+  }
+  span {
+    color: #6c757d;
+    font-size: 12px;
+    text-transform: capitalize;
+  }
+}

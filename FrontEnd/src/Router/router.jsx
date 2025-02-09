@@ -1,3 +1,4 @@
+import Addons from "../pages/Admin/Administrators/Addons";
 import AdminUsers from "../pages/Admin/Administrators/AdminUsers";
 import Customers from "../pages/Admin/Administrators/Customers";
 import DeliveryBoys from "../pages/Admin/Administrators/DeliveryBoys";
@@ -12,7 +13,7 @@ import BankDetails from "../pages/Admin/Finance/BankDetails";
 import Collections from "../pages/Admin/Finance/Collections";
 import Expenses from "../pages/Admin/Finance/Expenses";
 import RequestWithDraw from "../pages/Admin/Finance/ReqWithDraw";
-import Transactions from "../pages/Admin/Finance/Transactions";
+import Transaction from "../pages/Admin/Finance/Transactions";
 import WithDraw from "../pages/Admin/Finance/WithDraw";
 import AllPages from "../pages/Admin/FrontendCMS/AllPages";
 import AppBanners from "../pages/Admin/FrontendCMS/Banners";
@@ -21,6 +22,7 @@ import Categories from "../pages/Admin/MenageRestaurants/categories";
 import Cousins from "../pages/Admin/MenageRestaurants/Cousins";
 import MenuItems from "../pages/Admin/MenageRestaurants/MenuItems";
 import Raiting from "../pages/Admin/MenageRestaurants/Raiting";
+import Tables from "../pages/Admin/MenageRestaurants/Tables";
 import TimeSlots from "../pages/Admin/MenageRestaurants/TimeSlots";
 import PendingOrders from "../pages/Admin/PendingOrders";
 import PushNotification from "../pages/Admin/PushNotification";
@@ -43,6 +45,10 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import RequestPassword from "../pages/RequestPassword";
 import ResetPassword from "../pages/ResetPassword";
+import About from "../pages/User/About";
+import Contact from "../pages/User/Contact";
+import Privaciy from "../pages/User/Privaciy";
+import Terms from "../pages/User/Terms";
 import VerifyPage from "../pages/Verification";
 
 
@@ -53,7 +59,10 @@ const ROUTES = [
         path: "/",
         element: <Layout />,
         children: [
-            { path: "", element: <Home /> },
+            {
+                path: "",
+                element: <Home />
+            },
             {
                 path: "auth",
                 element: <Auth />,
@@ -65,6 +74,24 @@ const ROUTES = [
             { path: "password/request", element: <RequestPassword /> },
             { path: "/resetpassword/:token", element: <ResetPassword /> },
             { path: "/verify/:token", element: <VerifyPage /> },
+            
+                {
+                    path:"/about",
+                    element:<About/>
+                },
+                {
+                    path:"/terms",
+                    element:<Terms/>
+                },
+                {
+                    path:"/contact",
+                    element:<Contact/>
+                },
+                {
+                    path:"/privaciy",
+                    element:<Privaciy/>
+                }
+            
         ]
     },
     // Admin routing 
@@ -80,7 +107,7 @@ const ROUTES = [
             { path: "menu-items", element: <MenuItems /> },
             { path: "cousine", element: <Cousins /> },
             { path: "time-slots", element: <TimeSlots /> },
-            { path: "tables", element: <Restaurants /> },
+            { path: "tables", element: <Tables /> },
             { path: "rating", element: <Raiting /> },
             // sales
             { path: "reservation", element: <Rezervations /> },
@@ -90,12 +117,12 @@ const ROUTES = [
             // coupons
             { path: "coupons", element: <Coupons /> },
             // finance
-            { path: "transaction", element: <Transactions /> },
+            { path: "transaction", element: <Transaction /> },
             { path: "collection", element: <Collections /> },
             { path: "request-withdraw", element: <RequestWithDraw /> },
             { path: "withdraw", element: <WithDraw /> },
             { path: "bank", element: <BankDetails /> },
-            { path: "expense", element: <Expenses /> },
+            { path: "expenses", element: <Expenses /> },
             // Adminstrators
             { path: "users", element: <AdminUsers /> },
             { path: "customers", element: <Customers /> },
@@ -103,6 +130,7 @@ const ROUTES = [
             { path: "restaurant-owners", element: <RestaurantOwners /> },
             { path: "role", element: <Role /> },
             { path: "update", element: <Update /> },
+            { path: "addons", element: <Addons /> },
             // Report
             { path: "restaurant-owner-sales-report", element: <OwnerSales /> },
             { path: "admin-commission-report", element: <AdminCommision /> },
