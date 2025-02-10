@@ -34,21 +34,21 @@ function Dashboard() {
           <div className={style.total_card}>
             <span className={style.icon}><FaUser /></span>
             <div className={style.dash_desc}>
-              <h4>Total Orders</h4>
+              <h4>Total Customers</h4>
               <span>9</span>
             </div>
           </div>
           <div className={style.total_card}>
             <span className={style.icon}><FaUniversity /></span>
             <div className={style.dash_desc}>
-              <h4>Total Orders</h4>
+              <h4>Total Restaurants</h4>
               <span>9</span>
             </div>
           </div>
           <div className={style.total_card}>
             <span className={style.icon}><FaMoneyBill /></span>
             <div className={style.dash_desc}>
-              <h4>Total Orders</h4>
+              <h4>Total Income</h4>
               <span>9</span>
             </div>
           </div>

@@ -1,29 +1,37 @@
-import React, { useState } from 'react'
-import style from "./style.module.css"
-import { NavLink } from "react-router"
+import React, { useState } from 'react';
+import style from "./style.module.css";
+import { NavLink } from "react-router-dom"; // Düzgün import
 import { FaShoppingBag, FaUser } from "react-icons/fa";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { IoIosExit } from "react-icons/io";
-import { PiUserCirclePlusFill } from "react-icons/pi";
+import { PiUserCirclePlusFill, PiCoffee } from "react-icons/pi";
+import { CiLock, CiSettings, CiShoppingCart } from "react-icons/ci";
+import { useGetUserInfoQuery } from '../../../Redux/services/UserCreateApi';
+import {jwtDecode} from "jwt-decode"; // Default export düzgün import edildi
+
 function Navbar() {
+    const [dropdowns, setDropdowns] = useState({ language: false, auth: false, userInfo: false });
 
-    let [language, setLanguage] = useState(false)
-    let [auth, setAuth] = useState(false)
-    function handleSelect() {
-        if (language) {
-            setLanguage(false)
-            return
-        }
-        setLanguage(true)
-    }
-    function handleAuth() {
-        if (auth) {
-            setAuth(false)
-            return
-        }
-        setAuth(true)
+    const token = localStorage.getItem("token");
+    const userId = token ? jwtDecode(token).id : undefined;
+
+    // API request ancaq userId varsa getsin
+    const { data, isLoading, refetch } = useGetUserInfoQuery(userId, {
+        skip: !userId,
+    });
+
+    function UserLogout() {
+        localStorage.removeItem("token");
+        refetch(); // Cache-i yenilə
     }
 
+    const handleToggle = (key) => {
+        setDropdowns((prev) => ({ ...prev, [key]: !prev[key] }));
+    };
+
+    const dropdownStyle = (isOpen) => ({
+        display: isOpen ? "flex" : "none"
+    });
 
     return (
         <div className={style.navbar}>
@@ -39,62 +47,54 @@ function Navbar() {
                             <span><FaShoppingBag /></span>
                             <span className={style.num}>0</span>
                         </div>
+
                         <div className={style.language_select}>
-                            <button onClick={() => handleSelect()}>
-                                GB&nbsp;
-                                <span>English</span>
-                                <span style={{ fontSize: "20px" }} > <RiArrowDropDownLine /></span>
+                            <button onClick={() => handleToggle("language")}>
+                                GB&nbsp;<span>English</span>
+                                <RiArrowDropDownLine style={{ fontSize: "20px" }} />
                             </button>
-                            <ul style={language ? { display: "flex" } : { display: "none" }}>
-                                <li>
-                                    <NavLink>
-                                        GB&nbsp;
-                                        <span>English</span>
-                                    </NavLink>
-                                </li>
-                                <li>
-                                    <NavLink>
-                                        AZ&nbsp;
-                                        <span>Azerbaidjan</span>
-                                    </NavLink>
-                                </li>
-                                <li>
-                                    <NavLink>
-                                        DE&nbsp;
-                                        <span>German</span>
-                                    </NavLink>
-                                </li>
+                            <ul style={dropdownStyle(dropdowns.language)}>
+                                {["GB English", "AZ Azerbaidjan", "DE German"].map((lang, i) => (
+                                    <li key={i}>
+                                        <NavLink>{lang}</NavLink>
+                                    </li>
+                                ))}
                             </ul>
                         </div>
-                        <div className={style.auth_group}>
-                            <NavLink to={"/auth/login"}>
-                                <IoIosExit /> Sign In
-                            </NavLink>
-                            <NavLink to={"/auth/register"}>
-                                <PiUserCirclePlusFill /> Register
-                            </NavLink>
-                           
-                        </div>
-                        <div className={style.auth_group_list} onClick={() => handleAuth()}>
-                                <span><FaUser /></span>
-                                <ul style={auth ? { display: "flex" } : { display: "none" }}>
-                                    <li>
-                                        <NavLink to={"/auth/login"}>
-                                            <IoIosExit /> Sign In
-                                        </NavLink>
-                                    </li>
-                                    <li>
-                                        <NavLink to={"/auth/register"}>
-                                            <PiUserCirclePlusFill /> Register
-                                        </NavLink>
-                                    </li>
+
+                        {data ? (
+                            <div className={style.user_info}>
+                                <button onClick={() => handleToggle("userInfo")}>
+                                    <img src="https://demo.food-bank.xyz/themes/images/user-avatar.png" alt="user_img" width={"20px"} height={"20px"} />
+                                    <span>Hi, {data.firstName} {data.lastName.slice(0, 5)}</span>
+                                    <RiArrowDropDownLine style={{ fontSize: "20px" }} />
+                                </button>
+                                <ul style={dropdownStyle(dropdowns.userInfo)}>
+                                    <li><NavLink><CiSettings /> Account</NavLink></li>
+                                    <li><NavLink><CiShoppingCart /> My Orders</NavLink></li>
+                                    <li><NavLink><PiCoffee /> Reservation</NavLink></li>
+                                    <li><NavLink onClick={UserLogout}><CiLock /> Logout</NavLink></li>
                                 </ul>
                             </div>
+                        ) : (
+                            <div className={style.auth_group}>
+                                <NavLink to={"/auth/login"}><IoIosExit /> Sign In</NavLink>
+                                <NavLink to={"/auth/register"}><PiUserCirclePlusFill /> Register</NavLink>
+                            </div>
+                        )}
+
+                        <div className={style.auth_group_list} onClick={() => handleToggle("auth")}>
+                            <span><FaUser /></span>
+                            <ul style={dropdownStyle(dropdowns.auth)}>
+                                <li><NavLink to={"/auth/login"}><IoIosExit /> Sign In</NavLink></li>
+                                <li><NavLink to={"/auth/register"}><PiUserCirclePlusFill /> Register</NavLink></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
-export default Navbar
+export default Navbar;

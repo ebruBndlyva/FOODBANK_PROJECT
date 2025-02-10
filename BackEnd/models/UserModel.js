@@ -43,6 +43,7 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  depositAmount: { type: Number, default: 0 },
   isEmailVerified: {
     type: Boolean,
     default: false

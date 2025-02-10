@@ -65,11 +65,58 @@
     .language_select {
       position: relative;
       button {
+        
         background-color: transparent;
         color: #1f1f39;
         cursor: pointer;
         display: flex;
         gap: 2px;
+        border: 1px solid #d9dbe9;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
+        border-radius: 30px;
+        padding: 5px 20px;
+        font-size: 13px;
+        span {
+          display: flex;
+          align-items: center;
+        }
+      }
+      ul {
+        width: 100%;
+        border: 1px solid #edeef2;
+        box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.05);
+        border-radius: 10px;
+        padding: 5px;
+        position: absolute;
+        top: 50px;
+        right: 0;
+        list-style-type: none;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        a {
+          text-decoration: none;
+          color: #1f1f39;
+          font-size: 13px;
+          display: flex;
+          gap: 10px;
+          padding: 5px 10px;
+          border-radius: 10px;
+          &:hover {
+            background-color: #f1f1f1;
+          }
+        }
+      }
+    }
+    .user_info {
+      position: relative;
+      button {
+        background-color: transparent;
+        color: #1f1f39;
+        cursor: pointer;
+        display: flex;
+        gap: 5px;
         border: 1px solid #d9dbe9;
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
         border-radius: 30px;
@@ -101,8 +148,14 @@
           gap: 10px;
           padding: 5px 10px;
           border-radius: 10px;
+          span{
+            &:first-of-type{
+              font-size: 18px;
+            }
+          }
           &:hover {
             background-color: #f1f1f1;
+
           }
         }
       }

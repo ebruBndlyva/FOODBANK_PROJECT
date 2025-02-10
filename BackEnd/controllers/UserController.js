@@ -4,6 +4,15 @@ import jwt from "jsonwebtoken";
 import nodemailer from "nodemailer";
 
 export const UserController = {
+    getUsers: async (req, res) => {
+        let users = await UserModel.find()
+        res.send(users)
+    },
+    getUserbyId:async (req, res) => {
+        let {id} = req.params
+        let user = await UserModel.findById(id)
+        res.send(user)
+    },
     requestPasswordReset: async (req, res) => {
         const { email } = req.body;
         try {

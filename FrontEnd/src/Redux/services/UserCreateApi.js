@@ -42,7 +42,11 @@ export const UserApi = createApi({
                 body: { token, password, newPassword },
             }),
         }),
+        getUserInfo:builder.query({
+            query:(id)=>`/user/${id}`
+        })
+      
     }),
 });
 
-export const { useRegisterUserMutation, useLoginUserMutation, useRequestUserPaswMutation, useResetUserPaswMutation, useVerificationUserQuery } = UserApi;
+export const { useRegisterUserMutation, useLoginUserMutation, useRequestUserPaswMutation, useResetUserPaswMutation, useVerificationUserQuery ,useGetUserInfoQuery} = UserApi;
