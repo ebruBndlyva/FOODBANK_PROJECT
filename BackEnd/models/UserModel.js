@@ -48,7 +48,7 @@ const UserSchema = new mongoose.Schema({
     type: Boolean,
     default: false
   }
-}, { timestamps: true }); //timestamps - elave veya update olundu tarixida db -e elave edir !
+}, { timestamps: true });
 
-export const UserModel = mongoose.model("User", UserSchema);
+export const UserModel = mongoose.model("user", UserSchema);
 

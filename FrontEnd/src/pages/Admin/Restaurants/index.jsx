@@ -6,13 +6,17 @@ import { IoEyeOutline } from "react-icons/io5";
 import { AiFillDelete } from "react-icons/ai";
 import Filter from '../../../components/admin/Filter';
 import style from "../../../components/admin/Filter/style.module.css"
-import {NavLink} from "react-router-dom"
+import { NavLink } from "react-router-dom"
+import { useGetRestaurantsQuery } from '../../../Redux/services/RestaurantCreateApi';
 function Restaurants() {
+  const { data, isLoading } = useGetRestaurantsQuery()
+  console.log(data);
+
   const restaurantColumns = [
-    { title: "ID", dataIndex: "id", key: "id" },
+    { title: "ID", dataIndex: "_id", key: "_id" },
     { title: "Name", dataIndex: "name", key: "name" },
-    { title: "User", dataIndex: "user", key: "user" },
-    { title: "Status", dataIndex: "status", key: "status" },
+    { title: "User", dataIndex: "owner", key: "owner", render: (owner) => (owner ? owner.role : 'No Role') },
+    { title: "Status", dataIndex: "restaurantStatus", key: "restaurantStatus", render: (restaurantStatus) => restaurantStatus?.currentStatus || "InActive" },
     {
       title: "Actions", dataIndex: "actions", key: "actions",
       render: (_, record) => (
@@ -26,13 +30,6 @@ function Restaurants() {
 
   ];
 
-  const restaurantData = [
-    { id: 1, name: "Pizza House", user: "Baku", status: "Open" },
-    { id: 2, name: "Burger King", user: "Ganja", status: "Closed" },
-    { id: 2, name: "Burger King", user: "Ganja", status: "Closed" },
-    { id: 2, name: "Burger King", user: "Ganja", status: "Closed" },
-
-  ];
   return (
     <div className="content2">
       <div style={{ marginTop: "100px", backgroundColor: "white", borderRadius: "5px", padding: "0 20px" }}>
@@ -56,7 +53,11 @@ function Restaurants() {
           </div>
           <Filter />
         </div>
-        <CustomTable columns={restaurantColumns} data={restaurantData} />
+        {
+          isLoading ? (<h3>...Loading</h3>) : (
+            <CustomTable columns={restaurantColumns} data={data} />
+          )
+        }
       </div>
     </div>
   )

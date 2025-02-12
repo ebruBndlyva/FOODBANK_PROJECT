@@ -35,6 +35,7 @@ import OwnerSales from "../pages/Admin/Report/OwnerSales";
 import ReservationReport from "../pages/Admin/Report/ReservationReport";
 import WithdrawReport from "../pages/Admin/Report/WithDrawReport";
 import Restaurants from "../pages/Admin/Restaurants";
+import AddRestaurant from "../pages/Admin/Restaurants/AddRest";
 import Orders from "../pages/Admin/Sales/Orders";
 import Rezervations from "../pages/Admin/Sales/Rezervations";
 import Settings from "../pages/Admin/Settings";
@@ -45,10 +46,8 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import RequestPassword from "../pages/RequestPassword";
 import ResetPassword from "../pages/ResetPassword";
-import About from "../pages/User/About";
-import Contact from "../pages/User/Contact";
-import Privaciy from "../pages/User/Privaciy";
-import Terms from "../pages/User/Terms";
+import FilterPage from "../pages/User/FilterPage";
+import RestaurantMenu from "../pages/User/RestaurantMenu";
 import VerifyPage from "../pages/Verification";
 
 
@@ -74,24 +73,15 @@ const ROUTES = [
             { path: "password/request", element: <RequestPassword /> },
             { path: "/resetpassword/:token", element: <ResetPassword /> },
             { path: "/verify/:token", element: <VerifyPage /> },
-            
-                {
-                    path:"/about",
-                    element:<About/>
-                },
-                {
-                    path:"/terms",
-                    element:<Terms/>
-                },
-                {
-                    path:"/contact",
-                    element:<Contact/>
-                },
-                {
-                    path:"/privaciy",
-                    element:<Privaciy/>
-                }
-            
+            {
+                path: "/filter",
+                element: <FilterPage />
+            },
+            {
+                path: "/restaurant/:id",
+                element: <RestaurantMenu />
+            }
+
         ]
     },
     // Admin routing 
@@ -102,6 +92,10 @@ const ROUTES = [
             { path: "", element: <Dashboard /> },
             { path: "dashboard", element: <Dashboard /> },
             { path: "restaurants", element: <Restaurants /> },
+            {
+                path: "restaurants/add",
+                element: <AddRestaurant />
+            },
             // menage restaurants
             { path: "category", element: <Categories /> },
             { path: "menu-items", element: <MenuItems /> },

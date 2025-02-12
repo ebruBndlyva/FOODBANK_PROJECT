@@ -1,0 +1,151 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+.restaurant {
+  margin-top: 73px;
+  height: 100vh;
+  font-family: "Poppins", serif;
+}
+.restaurant_card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  .restaurant_desc {
+    position: relative;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    padding: 10px 0;
+    .table_info {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      display: flex;
+      gap: 10px;
+      button {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        background-color: #ed2049;
+        color: white;
+        border-radius: 30px;
+        padding: 5px 10px;
+        font-weight: 600;
+      }
+      span{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 15px;
+        background-color: #FFE8ED;
+        color: #ed2049;
+        border-radius: 50%;
+        padding: 10px 10px;
+      }
+    }
+    span {
+      color: gray;
+      font-size: 20px;
+    }
+    h4 {
+      font-size: 2.5rem;
+      font-weight: 500;
+      color: #160040;
+      display: flex;
+      gap: 5px;
+      align-items: center;
+      span {
+        width: 10px;
+        height: 10px;
+        background-color: green;
+        border-radius: 50%;
+      }
+    }
+    p {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      color: #1f1f39;
+    }
+  }
+  .restaurant_img {
+    width: 100%;
+    img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+}
+.restaurant_category {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.restaurant_menu {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 30px 0;
+}
+.menu_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  h3 {
+    font-size: 1.5rem;
+    color: #1f1f39;
+    font-weight: 600;
+  }
+  .menu_cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    .menu_card {
+      position: relative;
+      display: flex;
+      border: 1px solid #eff0f6;
+      border-radius: 8px;
+      gap: 10px;
+      .menu_img {
+        img {
+          width: 110px;
+          height: 110px;
+        }
+      }
+      .menu_desc {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        h4 {
+          font-size: 1rem;
+          color: #1f1f39;
+          font-weight: 600;
+        }
+        p {
+          color: gray;
+          font-size: 12px;
+        }
+        .basket {
+          position: absolute;
+          right: 10px;
+          bottom: 10px;
+          background-color: white;
+          color: #ed2049;
+          padding: 5px 10px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+          border-radius: 50px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 5px;
+          font-size: 13px;
+        }
+      }
+    }
+  }
+}

@@ -3,7 +3,7 @@ import style from "./style.module.css"
 import { Link } from 'react-router'
 import { FaFacebook, FaInstagram, FaMailBulk, FaPhone, FaTwitter, FaVoicemail, FaYoutube } from 'react-icons/fa'
 import { IoMail } from 'react-icons/io5'
-function Footer() {
+function Footer() { 
     return (
         <div className={style.footer}>
             <div className="content">

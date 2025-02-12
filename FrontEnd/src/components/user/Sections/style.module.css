@@ -240,54 +240,54 @@
       right: 43%;
     }
   }
-  .restaurant_cards {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
-    .restaurant_card {
+}
+.restaurant_cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  .restaurant_card {
+    overflow: hidden;
+    position: relative;
+    text-decoration: none;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s linear;
+    &:hover {
+      box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
+    }
+    &:hover img {
+      transform: scale(1.1) rotate(2deg);
+    }
+    .restaurant_img {
       overflow: hidden;
-      position: relative;
-      text-decoration: none;
-      border-radius: 12px;
-      display: flex;
-      flex-direction: column;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
       transition: all 0.3s linear;
-      &:hover {
-        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
+    }
+    .restaurant_desc {
+      display: flex;
+      padding: 10px;
+      gap: 10px;
+      flex-direction: column;
+      border-radius: 0 0 12px 12px;
+      border-top: none;
+      border: 1px solid #e9e5e6;
+      h4 {
+        font-size: 18px;
+        font-weight: 500;
+        color: #160040;
       }
-      &:hover img {
-        transform: scale(1.1) rotate(2deg);
-      }
-      .restaurant_img{
-        overflow: hidden;
-      }
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
-        transition: all 0.3s linear;
-      }
-      .restaurant_desc {
+      p {
+        font-size: 14px;
         display: flex;
-        padding: 10px;
-        gap: 10px;
-        flex-direction: column;
-        border-radius: 0 0 12px 12px;
-        border-top: none;
-        border: 1px solid #e9e5e6;
-        h4 {
-          font-size: 18px;
-          font-weight: 500;
-          color: #160040;
-        }
-        p {
-          font-size: 14px;
-          display: flex;
-          align-items: center;
-          gap: 5px;
-          color: #1f1f39;
-        }
+        align-items: center;
+        gap: 5px;
+        color: #1f1f39;
       }
     }
   }
