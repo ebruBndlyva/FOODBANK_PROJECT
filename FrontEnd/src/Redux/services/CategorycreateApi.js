@@ -17,6 +17,9 @@ export const CategoryApi = createApi({
         getCategories: builder.query({
             query: () => "/category"
         }),
+        getCategorieByRestaurant: builder.query({
+            query: (id) => `/category/${id}`
+        }),
         postcategories: builder.mutation({
             query: (newCategory) => ({
                 url: "/category",
@@ -28,4 +31,4 @@ export const CategoryApi = createApi({
     }),
 });
 
-export const { useGetCuisinesQuery } = CuisineApi
+export const { useGetCuisinesQuery,useGetCategorieByRestaurantQuery } = CategoryApi

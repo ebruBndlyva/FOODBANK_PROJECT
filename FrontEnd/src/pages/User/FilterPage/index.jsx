@@ -101,7 +101,7 @@ function FilterPage() {
                             {/* Radius seçimi */}
                             <div>
                                 <Button
-                                    style={{ border: "none", backgroundColor: "transparent", border: "1px solid #dddded", borderRadius: "30px", padding: "13px 15px", color: "black" }}
+                                    style={{  backgroundColor: "transparent", border: "1px solid #dddded", borderRadius: "30px", padding: "13px 15px", color: "black" }}
                                     onClick={(e) => {
                                         setAnchorEl(e.currentTarget);
                                         setOpenRadius(true);

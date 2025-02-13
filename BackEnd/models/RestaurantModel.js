@@ -5,32 +5,29 @@ const RestaurantSchema = new mongoose.Schema({
     name: { type: String, required: true, unique: true },
     openingTime: { type: Date, required: true },
     closingTime: { type: Date, required: true },
-    cuisine: [{ type: mongoose.Schema.Types.ObjectId, ref: "cuisine" }],
-    categories: [{ type: mongoose.Schema.Types.ObjectId, ref: "category" }],
     restaurantAddress: { type: String, required: true },
     description: { type: String },
     logo: { type: String },
     featuredImage: { type: String },
-
-    // Kuponları ayrıca modeldən gətirmək üçün
-    vouchers: [{ type: mongoose.Schema.Types.ObjectId, ref: "coupon" }],
-
     location: {
         type: { type: String, enum: ["Point"], default: "Point" },
         coordinates: { type: [Number], required: true }
     },
-
-    owner: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "user",
-        required: true,
-    },
-
     restaurantStatus: {
         delivery: { type: String, enum: ["Enable", "Disable"], default: "Enable" },
         pickup: { type: String, enum: ["Enable", "Disable"], default: "Enable" },
         currentStatus: { type: String, enum: ["Active", "Inactive"], default: "Active" }
-    }
+    },
+
+    cuisine: [{ type: mongoose.Schema.Types.ObjectId, ref: "cuisines" }],      //cuisine
+    categories: [{ type: mongoose.Schema.Types.ObjectId, ref: "categories" }], //category
+    //  menu: [{ type: mongoose.Schema.Types.ObjectId, ref: 'menuItems' }],        
+    rating: { type: Number, default: 0 },                                      //rating
+    reviews: [{ type: mongoose.Schema.Types.ObjectId, ref: "reviews" }],       //reviews
+    coupons: [{ type: mongoose.Schema.Types.ObjectId, ref: "coupon" }],        //coupons
+    owner: { type: mongoose.Schema.Types.ObjectId, ref: "user", required: true, }  //owner
+
+
 }, { timestamps: true });
 
 RestaurantSchema.index({ location: "2dsphere" });

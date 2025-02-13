@@ -17,9 +17,12 @@ export const RestaurantApi = createApi({
         getRestaurants: builder.query({
             query: () => "/restaurant"
         }),
+        getRestaurantsById: builder.query({
+            query: (id) => `/restaurant/${id}`
+        }),
         postRestaurant: builder.mutation({
             query: (newRestaurant) => ({
-                url: "/restaurant",
+                url: "/restaurant", 
                 method: "POST",
                 body: newRestaurant
             })
@@ -28,4 +31,4 @@ export const RestaurantApi = createApi({
     }),
 });
 
-export const { useGetRestaurantsQuery,usePostRestaurantMutation } = RestaurantApi;
+export const { useGetRestaurantsQuery,usePostRestaurantMutation,useGetRestaurantsByIdQuery } = RestaurantApi;

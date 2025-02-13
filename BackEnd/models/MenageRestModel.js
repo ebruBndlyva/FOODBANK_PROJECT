@@ -5,7 +5,6 @@ import mongoose from "mongoose";
 const CategorySchema = new mongoose.Schema({
     status: { type: String, enum: ["Active", "Inactive"], default: "Active" },
     restaurant: { type: mongoose.Schema.Types.ObjectId, ref: "restaurants" },
-    name: String,
     menuItems: [{ type: mongoose.Schema.Types.ObjectId, ref: "menuItems" }],
     name: { type: String, required: true, unique: true },
     image: { type: String, default: "" },
@@ -24,10 +23,10 @@ export const CuisineModel = mongoose.model("cuisines", CuisineSchema);
 
 //! Menu Item Model
 const MenuItemSchema = new mongoose.Schema({
-    restaurant: { type: mongoose.Schema.Types.ObjectId, ref: "restaurants", required: true },
-    name: { type: String, required: true },
-    status: { type: String,  enum: ["Active", "Inactive"], default: "Active" },
-    categories: { type: mongoose.Schema.Types.ObjectId, ref: "categories" },
+    // restaurant: { type: mongoose.Schema.Types.ObjectId, ref: "restaurants"},
+    category: { type: mongoose.Schema.Types.ObjectId, ref: "categories", required: true },
+    name: { type: String, required: true, unique: true },
+    status: { type: String, enum: ["Active", "Inactive"], default: "Active" },
     image: { type: String, default: "" },
     description: { type: String, default: "" },
     unitPrice: { type: Number, required: true, min: 0 },
