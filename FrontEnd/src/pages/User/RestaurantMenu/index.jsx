@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './style.css'
 import { IoLocationOutline } from 'react-icons/io5'
 import { FaInfoCircle, FaShoppingBag, FaStar, FaTable } from 'react-icons/fa'
@@ -8,16 +8,13 @@ import Tab from '@mui/material/Tab';
 import { useParams } from 'react-router-dom'
 import { useGetRestaurantsByIdQuery } from '../../../Redux/services/RestaurantCreateApi';
 import { useGetCategorieByRestaurantQuery } from '../../../Redux/services/CategorycreateApi';
-import { useGetMenuesByRestaurantQuery } from '../../../Redux/services/MenuCreateApi';
-
 function RestaurantMenu() {
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = useState(0);
   const { id } = useParams()
   const { data, isLoading, isError } = useGetRestaurantsByIdQuery(id)
   const response = useGetCategorieByRestaurantQuery(id)
   const catagories = response.data
-  const result  = useGetMenuesByRestaurantQuery(id)
-  const menuItems = result.data
+
 
 
   const handleChange = (event, newValue) => {

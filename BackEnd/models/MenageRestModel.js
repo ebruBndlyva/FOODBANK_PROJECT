@@ -4,26 +4,14 @@ import mongoose from "mongoose";
 //!  Category Model
 const CategorySchema = new mongoose.Schema({
     status: { type: String, enum: ["Active", "Inactive"], default: "Active" },
-    restaurant: { type: mongoose.Schema.Types.ObjectId, ref: "restaurants" },
-    menuItems: [{ type: mongoose.Schema.Types.ObjectId, ref: "menuItems" }],
     name: { type: String, required: true, unique: true },
     image: { type: String, default: "" },
     description: { type: String, default: "" }
 });
 export const CategoryModel = mongoose.model("categories", CategorySchema);
 
-//! CuisineModel
-const CuisineSchema = new mongoose.Schema({
-    name: { type: String, required: true, unique: true },
-    status: { type: String, required: true, enum: ["Active", "Inactive"], default: "Active" },
-    image: { type: String, default: "" },
-    description: { type: String, default: "" }
-});
-export const CuisineModel = mongoose.model("cuisines", CuisineSchema);
-
 //! Menu Item Model
 const MenuItemSchema = new mongoose.Schema({
-    // restaurant: { type: mongoose.Schema.Types.ObjectId, ref: "restaurants"},
     category: { type: mongoose.Schema.Types.ObjectId, ref: "categories", required: true },
     name: { type: String, required: true, unique: true },
     status: { type: String, enum: ["Active", "Inactive"], default: "Active" },
@@ -34,6 +22,16 @@ const MenuItemSchema = new mongoose.Schema({
 });
 
 MenuItemSchema.index({ restaurant: 1, name: 1 }, { unique: true });
+//! CuisineModel
+const CuisineSchema = new mongoose.Schema({
+    name: { type: String, required: true, unique: true },
+    status: { type: String, required: true, enum: ["Active", "Inactive"], default: "Active" },
+    image: { type: String, default: "" },
+    description: { type: String, default: "" }
+});
+export const CuisineModel = mongoose.model("cuisines", CuisineSchema);
+
+
 //! Table Model
 const TableSchema = new mongoose.Schema({
     restaurant: { type: mongoose.Schema.Types.ObjectId, ref: "restaurants", required: true },

@@ -30,7 +30,7 @@ function Language() {
   ];
   const Data = [
 
-    { id: 1, name: "Pizza House", name: "John", code: "12345", status: "Open", },
+    { id: 1, name: "John", code: "12345", status: "Open", },
 
   ];
 

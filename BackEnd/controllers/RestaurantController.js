@@ -20,8 +20,10 @@ export const RestaurantController = {
                return res.status(400).send({ message: "Invalid restaurant ID" });
            }
     
-           const restaurant = await RestaurantModel.findById(id).populate('categories')
-               .populate('categories')
+           const restaurant = await RestaurantModel.findById(id)
+           .populate('menu')
+
+             
              
     
            if (!restaurant) {
