@@ -46,6 +46,8 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import RequestPassword from "../pages/RequestPassword";
 import ResetPassword from "../pages/ResetPassword";
+import Basket from "../pages/User/Basket";
+import Checkout from "../pages/User/Ckeckout";
 import FilterPage from "../pages/User/FilterPage";
 import RestaurantMenu from "../pages/User/RestaurantMenu";
 import VerifyPage from "../pages/Verification";
@@ -76,6 +78,14 @@ const ROUTES = [
             {
                 path: "/filter",
                 element: <FilterPage />
+            },
+            {
+                path: "/basket",
+                element: <Basket />
+            },
+            {
+                path: "/checkout",
+                element: <Checkout />
             },
             {
                 path: "/restaurant/:id",

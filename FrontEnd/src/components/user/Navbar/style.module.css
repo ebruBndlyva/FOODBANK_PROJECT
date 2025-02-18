@@ -32,6 +32,7 @@
     gap: 20px;
 
     .basket_cart {
+      cursor: pointer;
       position: relative;
       display: flex;
       align-items: center;

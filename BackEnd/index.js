@@ -10,6 +10,7 @@ import { restaurantRouter } from "./routers/RestaurantRouter.js"
 import { categoryRouter } from "./routers/CategoryRouter.js"
 import { menuItemRouter } from "./routers/MenuItemRouter.js"
 // import { cuisineRouter } from "./routers/CousineRouter.js"
+import { basketRouter } from "./routers/BasketRouter.js"
 dotenv.config()
 app.use(express.json())
 app.use(cors())
@@ -22,6 +23,7 @@ app.use("/api/restaurant", restaurantRouter)
 app.use("/api/category", categoryRouter)
 app.use("/api/menu", menuItemRouter)
 // app.use("/api/cuisine",cuisineRouter)
+app.use("/api/basket",basketRouter)
 app.listen(port, () => {
     console.log(`Project is listening on port ${port}!`);
 })

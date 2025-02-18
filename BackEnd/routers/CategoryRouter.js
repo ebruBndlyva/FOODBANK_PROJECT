@@ -3,6 +3,6 @@ import express from "express";
 
 export const categoryRouter = express.Router();
 
-categoryRouter.get("/", CategoryContoller.getCategoriesByRestaurant);
-categoryRouter.get("/:id", CategoryContoller.getCategoriesByRestaurant);
+
+categoryRouter.get("/", CategoryContoller.getAllCategories);
 categoryRouter.post("/", CategoryContoller.createCategory);

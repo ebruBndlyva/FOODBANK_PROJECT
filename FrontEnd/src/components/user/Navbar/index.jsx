@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import style from "./style.module.css";
-import { NavLink } from "react-router-dom"; // Düzgün import
+import { NavLink, useNavigate } from "react-router-dom"; // Düzgün import
 import { FaShoppingBag, FaUser } from "react-icons/fa";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { IoIosExit } from "react-icons/io";
@@ -14,7 +14,7 @@ function Navbar() {
 
     const token = localStorage.getItem("token");
     const userId = token ? jwtDecode(token).id : undefined;
-
+const navigate = useNavigate()
     // API request ancaq userId varsa getsin
     const { data, isLoading, refetch } = useGetUserInfoQuery(userId, {
         skip: !userId,
@@ -43,7 +43,7 @@ function Navbar() {
                         </NavLink>
                     </div>
                     <div className={style.navbar_group}>
-                        <div className={style.basket_cart}>
+                        <div className={style.basket_cart} onClick={() => navigate("/basket")}>
                             <span><FaShoppingBag /></span>
                             <span className={style.num}>0</span>
                         </div>

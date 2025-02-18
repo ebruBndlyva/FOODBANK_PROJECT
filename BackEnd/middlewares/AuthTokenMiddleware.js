@@ -9,12 +9,12 @@ export const AuthTokenMiddleWare = async (req, res, next) => {
         success: false,
         message: "Authentication token is required",
       });
-    }
+    }  
 
     const decode = jwt.verify(token, process.env.JWT_SECRET);
-
-    req.body.email = decode.email; 
-    next(); 
+    req.user = decode
+    req.body.email = decode.email;
+    next();
   } catch (error) {
     console.log(error);
     res.status(401).send({

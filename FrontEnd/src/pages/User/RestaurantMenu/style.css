@@ -33,12 +33,12 @@
         padding: 5px 10px;
         font-weight: 600;
       }
-      span{
+      span {
         display: flex;
         align-items: center;
         justify-content: center;
         font-size: 15px;
-        background-color: #FFE8ED;
+        background-color: #ffe8ed;
         color: #ed2049;
         border-radius: 50%;
         padding: 10px 10px;
@@ -111,16 +111,23 @@
       border: 1px solid #eff0f6;
       border-radius: 8px;
       gap: 10px;
+      padding: 0;
       .menu_img {
+        width: 110px;
+        height: 110px;
+        margin: 0;
         img {
           width: 110px;
           height: 110px;
+          object-fit: cover;
+          object-position: center;
         }
       }
       .menu_desc {
         display: flex;
         flex-direction: column;
         gap: 15px;
+        padding: 10px 0;
         h4 {
           font-size: 1rem;
           color: #1f1f39;
@@ -131,6 +138,7 @@
           font-size: 12px;
         }
         .basket {
+          cursor: pointer;
           position: absolute;
           right: 10px;
           bottom: 10px;
@@ -146,6 +154,159 @@
           font-size: 13px;
         }
       }
+    }
+  }
+}
+
+.overlay {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.menu-detail {
+  background-color: white;
+  border-radius: 20px;
+  width: 500px;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1200;
+  .detail-head {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    border-bottom: 1px solid #eff0f6;
+
+    button {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      background-color: white;
+      color: #ed2049;
+      border: none;
+      font-size: 18px;
+      cursor: pointer;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      &:hover {
+        background-color: #ed2049;
+        color: white;
+      }
+    }
+    h3 {
+      font-size: 22px;
+      font-weight: 700;
+      text-transform: capitalize;
+      color: #1f1f39;
+      padding: 0 15px 0 15px;
+    }
+    p {
+      font-size: 12px;
+      font-weight: 400;
+      color: #6e7191;
+      padding: 0 15px 15px 15px;
+    }
+    img {
+      width: 500px;
+      height: 230px;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 20px 20px 0 0;
+    }
+  }
+}
+
+.detail-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 15px;
+
+  form {
+    padding: 0;
+  }
+  h4 {
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: capitalize;
+    color: #1f1f39;
+    display: flex;
+    justify-content: space-between;
+    span {
+      background-color: #e2f8ff;
+      font-size: 12px;
+      font-weight: 500;
+      padding: 5px 10px;
+      border-radius: 12px;
+      color: #00749b;
+    }
+  }
+  ul {
+    border-bottom: 1px solid #eff0f6;
+    padding: 15px;
+    width: 100%;
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 14px;
+    li {
+      position: relative;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      input {
+        margin: 0;
+        width: 15px;
+        height: 15px;
+        border: 1px solid #eff0f6;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+      span {
+        position: absolute;
+        right: 0;
+      }
+    }
+  }
+}
+
+.detail-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  button{
+    width: 100%;
+  }
+  .basket-count {
+    background-color: #fff2f5;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 20px;
+    padding: 0 20px;
+    span{
+      color: #ed2049;
+    }
+    button{
+      cursor: pointer;
+      border-radius: 0px;
+      background-color: transparent;
+      color: black;
+      font-size: 20px;
+      font-weight: 100;
     }
   }
 }

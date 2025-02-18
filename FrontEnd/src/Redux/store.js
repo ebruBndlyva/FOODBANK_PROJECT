@@ -1,8 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/query";
 import apis from "./services";
-
-const reducers = {};
+import CounterReducer from "./slice/CounterSlice"
+const reducers = { counter: CounterReducer };
 const middlewares = [];
 
 apis.forEach((api) => {
