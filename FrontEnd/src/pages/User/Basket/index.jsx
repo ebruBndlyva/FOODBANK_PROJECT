@@ -3,10 +3,16 @@ import './style.css';
 import { FaFastBackward } from "react-icons/fa";
 import { useGetBasketsQuery, useUpdateBasketItemMutation } from '../../../Redux/services/BasketCreateApi';
 import Switch from '@mui/material/Switch';
+import {useNavigate} from "react-router-dom"
+import { useDispatch } from 'react-redux';
 function Basket() {
   const { data, isLoading, isError, refetch } = useGetBasketsQuery();
   const [updateBasketItem] = useUpdateBasketItemMutation();
+  const navigate = useNavigate()
+
+
   const label = { inputProps: { 'aria-label': 'Switch demo' } };
+
   if (isLoading) return <h3>...Loading</h3>;
   if (isError) return <h3>Error loading cart data</h3>;
 
@@ -80,7 +86,7 @@ function Basket() {
             <li>Discount <span>$0</span></li>
             <li>Total <span>$0</span></li>
           </ul>
-          <button>Proceed Checkout</button>
+          <button onClick={()=>navigate("/checkout")}>Proceed Checkout</button>
         </div>
       </div>
     </div>
