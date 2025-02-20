@@ -162,7 +162,8 @@
     }
     .checkout-submit{
       position: absolute;
-      bottom: -80px;
+      bottom: -60px;
+      right: 100px;
       width: 30%;
     }
     

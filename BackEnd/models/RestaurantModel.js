@@ -23,7 +23,6 @@ const RestaurantSchema = new mongoose.Schema({
     menu: [{ type: mongoose.Schema.Types.ObjectId, ref: 'menuItems' }],        //menu
     rating: { type: Number, default: 0 },                                      //rating
     reviews: [{ type: mongoose.Schema.Types.ObjectId, ref: "reviews" }],       //reviews
-    coupons: [{ type: mongoose.Schema.Types.ObjectId, ref: "coupon" }],        //coupons
     owner: { type: mongoose.Schema.Types.ObjectId, ref: "user", required: true, }  //owner
 
 

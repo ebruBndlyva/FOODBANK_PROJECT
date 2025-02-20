@@ -4,7 +4,8 @@ import { CuisineApi } from "./CuisineCreateApi";
 import { CategoryApi } from "./CategorycreateApi";
 import { MenuApi } from "./MenuCreateApi";
 import { BasketApi } from "./BasketCreateApi";
+import { CouponApi } from "./CouponCreateApi";
 
-const apis = [UserApi, RestaurantApi,CuisineApi,CategoryApi,MenuApi,BasketApi];
+const apis = [UserApi, RestaurantApi,CuisineApi,CategoryApi,MenuApi,BasketApi,CouponApi];
 
 export default apis;

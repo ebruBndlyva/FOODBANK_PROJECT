@@ -46,8 +46,14 @@ export const BasketController = {
             if (!basket) {
                 return res.status(404).json({ message: "Səbət boşdur" });
             }
-
-            res.status(200).json(basket);
+            let subtotal = 0;
+            basket.items.forEach(item => {
+                subtotal += item.menuId.unitPrice * item.count;
+            });
+            res.status(200).send({
+                basket,
+                subtotal
+            });
         } catch (error) {
             res.status(500).json({ error: "Səbəti gətirərkən xəta baş verdi" });
         }
@@ -56,13 +62,13 @@ export const BasketController = {
         try {
             const { menuId, count } = req.body;
             const userId = req.user.id;
-    
+
             const basket = await BasketModel.findOne({ userId });
-    
+
             if (!basket) {
                 return res.status(404).json({ message: "Səbət tapılmadı" });
             }
-    
+
             if (count < 1) {
                 // count 1-dən kiçik olduqda, məhsul silinir
                 const updatedBasket = await BasketModel.findOneAndUpdate(
@@ -70,26 +76,26 @@ export const BasketController = {
                     { $pull: { items: { menuId } } },  // məhsulu səbətdən silirik
                     { new: true }
                 );
-    
+
                 return res.status(200).json({ message: "Məhsul səbətdən silindi", basket: updatedBasket });
             }
-    
+
             // Əks halda, məhsulun sayını yeniləyirik
             const updatedBasket = await BasketModel.updateOne(
                 { userId, "items.menuId": menuId },
                 { $set: { "items.$.count": count } }
             );
-    
+
             if (!updatedBasket.modifiedCount) {
                 return res.status(404).json({ message: "Məhsul tapılmadı və ya dəyişiklik olunmadı" });
             }
-    
+
             res.status(200).json({ message: "Məhsulun sayı yeniləndi", basket: updatedBasket });
         } catch (error) {
             res.status(500).send({ error: "Məhsul yenilənərkən xəta baş verdi" });
         }
     }
-    
-    
+
+
 
 };
