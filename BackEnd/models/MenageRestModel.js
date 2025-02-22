@@ -36,7 +36,7 @@ export const CuisineModel = mongoose.model("cuisines", CuisineSchema);
 
 //! Table Model
 const TableSchema = new mongoose.Schema({
-    restaurant: { type: mongoose.Schema.Types.ObjectId, ref: "restaurants", required: true },
+  
     name: { type: String, required: true },
     status: { type: String, required: true, enum: ["Active", "Inactive"], default: "Active" },
     capacity: { type: Number, required: true }

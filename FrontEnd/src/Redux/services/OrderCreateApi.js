@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-export const CouponApi = createApi({
+export const OrderApi = createApi({
     reducerPath: "couponApi",
     baseQuery: fetchBaseQuery({
         baseUrl: "http://localhost:5000/api",
@@ -14,29 +14,20 @@ export const CouponApi = createApi({
         }
     }),
     endpoints: (builder) => ({
-        getCoupons: builder.query({
-            query: () => "/coupon"
+        getOrders: builder.query({
+            query: () => "/order"
         }),
 
-        postCoupon: builder.mutation({
-            query: (newCoupon) => ({
+        postOrder: builder.mutation({
+            query: (newOrder) => ({
                 url: "/coupon",
                 method: "POST",
-                body: newCoupon
+                body: newOrder
             })
-        }),
-
-        applyCoupon: builder.mutation({
-            query: ({ code, orderAmount }) => ({
-                url: "/coupon/apply",
-                method: "POST",
-                body: { code, orderAmount }
-            }),
-            invalidatesTags: ["Coupon"], 
         }),
 
 
     }),
 });
 
-export const { useApplyCouponMutation,useGetCouponsQuery,usePostCouponMutation } = CouponApi;
+export const {useGetOrdersQuery,usePostOrderMutation} = OrderApi;

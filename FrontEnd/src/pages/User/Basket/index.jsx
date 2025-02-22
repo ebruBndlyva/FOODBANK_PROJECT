@@ -23,23 +23,26 @@ function Basket() {
   if (isLoading) return <h3>...Loading</h3>;
   if (isError || !data || !data.basket) return <h3>Error loading cart data</h3>;
 
+console.log(data);
+
+
   const handleApplyCoupon = async () => {
     try {
       const response = await applyCoupon({ code: couponCode, orderAmount: data.subtotal }).unwrap();
-      console.log("Kupon cavabı:", response.discountAmount); // Burada cavabı görəcəksiniz
+      console.log(response); 
       setDiscount((prev) => {
         console.log("Əvvəlki Discount:", prev);
         console.log("Yeni Discount:", response.discountAmount);
         return response.discountAmount;
       });
-      
+
     } catch (err) {
       console.error("Kupon tətbiq edilmədi:", err);
       setDiscount(0);
     }
   };
 
-console.log(discount);
+  console.log(discount);
 
   const handleSwitchChange = () => {
     setIsDelivery(prev => !prev);
@@ -63,6 +66,24 @@ console.log(discount);
   };
 
   const totalAmount = data.subtotal + (isDelivery ? deliveryCharge : 0) - discount;
+
+  function handleCheckout() {
+
+    localStorage.setItem("checkout", JSON.stringify(
+      {
+        basketItems: data,
+        subtotal: data.subtotal,
+        discount: discount,
+        deliveryCharge: deliveryCharge,
+        total: totalAmount
+      }
+    ))
+    navigate("/checkout")
+  }
+
+
+
+
 
   return (
     <div className="basket">
@@ -104,9 +125,9 @@ console.log(discount);
         </div>
         <div className="basket-checkout">
           <div className='check-head'>
-            <span>Delivery</span>
-            <Switch {...label} checked={isDelivery} onChange={handleSwitchChange} />
             <span>Pickup</span>
+            <Switch {...label} checked={isDelivery} onChange={handleSwitchChange} />
+            <span>Delivery</span>
           </div>
           <h3>Your order from FoodBank</h3>
           <form onSubmit={(e) => { e.preventDefault(); handleApplyCoupon(); }}>
@@ -124,7 +145,7 @@ console.log(discount);
             <li>Discount <span>-${discount.toFixed(2)}</span></li>
             <li>Total <span>${totalAmount.toFixed(2)}</span></li>
           </ul>
-          <button onClick={() => navigate("/checkout")}>Proceed Checkout</button>
+          <button onClick={() => handleCheckout()}>Proceed Checkout</button>
         </div>
       </div>
     </div>

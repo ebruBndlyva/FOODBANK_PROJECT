@@ -13,6 +13,8 @@ const BasketSchema = new mongoose.Schema({
             note: { type: String }
         }
     ]
+
+
 })
 
 export const BasketModel = mongoose.model("basket", BasketSchema)

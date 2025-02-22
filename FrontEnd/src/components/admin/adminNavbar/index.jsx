@@ -23,7 +23,7 @@ function AdminNavbar() {
           <div className={style.navbar_right}>
             <ul>
               <li>
-                <NavLink>
+                <NavLink to={"/"} target='blank'>
                   <span><FaGlobe /></span>
                 </NavLink>
               </li>

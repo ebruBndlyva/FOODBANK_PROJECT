@@ -44,10 +44,10 @@ export const BasketController = {
                 .populate("restaurantId", "name");
 
             if (!basket) {
-                return res.status(404).json({ message: "Səbət boşdur" });
+                return res.status(404).send({ message: "Səbət boşdur" });
             }
             let subtotal = 0;
-            basket.items.forEach(item => {
+            basket.items.forEach(item => {3
                 subtotal += item.menuId.unitPrice * item.count;
             });
             res.status(200).send({
@@ -55,7 +55,7 @@ export const BasketController = {
                 subtotal
             });
         } catch (error) {
-            res.status(500).json({ error: "Səbəti gətirərkən xəta baş verdi" });
+            res.status(500).send({ error: "Səbəti gətirərkən xəta baş verdi" });
         }
     },
     updateBasketItem: async (req, res) => {
@@ -66,31 +66,31 @@ export const BasketController = {
             const basket = await BasketModel.findOne({ userId });
 
             if (!basket) {
-                return res.status(404).json({ message: "Səbət tapılmadı" });
+                return res.status(404).send({ message: "Səbət tapılmadı" });
             }
 
             if (count < 1) {
-                // count 1-dən kiçik olduqda, məhsul silinir
+         
                 const updatedBasket = await BasketModel.findOneAndUpdate(
                     { userId },
-                    { $pull: { items: { menuId } } },  // məhsulu səbətdən silirik
+                    { $pull: { items: { menuId } } },  
                     { new: true }
                 );
 
-                return res.status(200).json({ message: "Məhsul səbətdən silindi", basket: updatedBasket });
+                return res.status(200).send({ message: "Məhsul səbətdən silindi", basket: updatedBasket });
             }
 
-            // Əks halda, məhsulun sayını yeniləyirik
+   
             const updatedBasket = await BasketModel.updateOne(
                 { userId, "items.menuId": menuId },
                 { $set: { "items.$.count": count } }
             );
 
             if (!updatedBasket.modifiedCount) {
-                return res.status(404).json({ message: "Məhsul tapılmadı və ya dəyişiklik olunmadı" });
+                return res.status(404).send({ message: "Məhsul tapılmadı və ya dəyişiklik olunmadı" });
             }
 
-            res.status(200).json({ message: "Məhsulun sayı yeniləndi", basket: updatedBasket });
+            res.status(200).send({ message: "Məhsulun sayı yeniləndi", basket: updatedBasket });
         } catch (error) {
             res.status(500).send({ error: "Məhsul yenilənərkən xəta baş verdi" });
         }

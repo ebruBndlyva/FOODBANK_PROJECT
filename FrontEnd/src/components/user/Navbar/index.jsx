@@ -7,22 +7,28 @@ import { IoIosExit } from "react-icons/io";
 import { PiUserCirclePlusFill, PiCoffee } from "react-icons/pi";
 import { CiLock, CiSettings, CiShoppingCart } from "react-icons/ci";
 import { useGetUserInfoQuery } from '../../../Redux/services/UserCreateApi';
-import {jwtDecode} from "jwt-decode"; // Default export düzgün import edildi
+import { jwtDecode } from "jwt-decode"; // Default export düzgün import edildi
+import { useGetBasketsQuery } from '../../../Redux/services/BasketCreateApi';
 
 function Navbar() {
     const [dropdowns, setDropdowns] = useState({ language: false, auth: false, userInfo: false });
 
     const token = localStorage.getItem("token");
     const userId = token ? jwtDecode(token).id : undefined;
-const navigate = useNavigate()
+    const navigate = useNavigate()
+   
+   
+    
+
+    
     // API request ancaq userId varsa getsin
     const { data, isLoading, refetch } = useGetUserInfoQuery(userId, {
         skip: !userId,
     });
 
-    function UserLogout() {
+   async function UserLogout() {
         localStorage.removeItem("token");
-        refetch(); // Cache-i yenilə
+       await refetch(); 
     }
 
     const handleToggle = (key) => {

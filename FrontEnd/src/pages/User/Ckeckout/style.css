@@ -5,6 +5,7 @@
   width: 80%;
   margin: 0px auto;
   margin-top: 100px;
+  margin-bottom: 30px;
   font-family: "Poppins", serif;
   h2 {
     display: flex;
@@ -21,149 +22,155 @@
       color: #ed2049;
     }
   }
-  form {
+  .checkout-content{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 50px;
-    .delivery-address {
+   
+  }
+  .delivery-address {
     
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    gap: 20px;
+    h3 {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-weight: 500;
+      button {
+        display: flex;
+        gap: 10px;
+        background-color: rgb(255, 232, 237) !important;
+        color: #ed2049;
+        border-radius: 10px;
+        font-weight: 500;
+        font-size: 14px;
+        padding: 5px 10px;
+      }
+    }
+    .address {
+      border: 1px solid #ed2049;
       display: flex;
       flex-direction: column;
-      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-      padding: 15px;
+      gap: 15px;
+      padding: 15px 20px;
       border-radius: 10px;
-      gap: 20px;
-      h3 {
+      h4 {
         display: flex;
         align-items: center;
         justify-content: space-between;
         font-weight: 500;
+        color: #00749b;
         button {
-          display: flex;
-          gap: 10px;
-          background-color: rgb(255, 232, 237) !important;
+          background: transparent;
           color: #ed2049;
-          border-radius: 10px;
-          font-weight: 500;
-          font-size: 14px;
-          padding: 5px 10px;
+          display: flex;
+          gap: 5px;
+          font-size: 17px;
         }
       }
-      .address {
-        border: 1px solid #ed2049;
+
+      .form {
         display: flex;
-        flex-direction: column;
+        align-items: center;
         gap: 15px;
-        padding: 15px 20px;
-        border-radius: 10px;
-        h4 {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          font-weight: 500;
-          color: #00749b;
-          button {
-            background: transparent;
-            color: #ed2049;
-            display: flex;
-            gap: 5px;
-            font-size: 17px;
-          }
+        input {
+          width: 15px;
         }
-  
-        .form {
+        label {
           display: flex;
-          align-items: center;
-          gap: 15px;
-          input {
-            width: 15px;
-          }
-          label {
-            display: flex;
-            flex-direction: column;
-  
-            gap: 5px;
-            font-size: 13px;
-          }
+          flex-direction: column;
+
+          gap: 5px;
+          font-size: 13px;
         }
       }
     }
-    .order {
+  }
+  .order {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    .order-head {
       display: flex;
       flex-direction: column;
-      gap: 15px;
-      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-      padding: 15px;
-      border-radius: 10px;
-      .order-head {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        color: #00749b;
-        h3 {
-          font-weight: 500;
-          font-size: 16px;
-        }
-        p {
-          font-size: 11px;
-        }
+      align-items: center;
+      color: #00749b;
+      h3 {
+        font-weight: 500;
+        font-size: 16px;
       }
-      .order-content {
-        border-top: 1px solid rgba(0, 0, 0, 0.1);
-        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-        padding: 15px 0;
+      p {
+        font-size: 11px;
+      }
+    }
+    .order-content {
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      padding: 15px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+      h5 {
+        width: 100%;
         display: flex;
-        flex-direction: column;
+        justify-content: space-between;
         align-items: center;
-        h5 {
-          width: 100%;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          color: #ed2049;
-          font-size: 17px;
-          font-weight: 500;
-          span {
-            color: black;
-            font-size: 15px;
-            &:first-of-type {
-              color: white;
-              background-color: black;
-              border-radius: 100%;
-              padding: 5px 8px;
-              font-size: 12px;
-            }
-          }
-        }
+        color: #ed2049;
+        font-size: 17px;
+        font-weight: 500;
         span {
-          font-size: 14px;
+          color: black;
+          font-size: 15px;
+          &:first-of-type {
+            color: white;
+            background-color: black;
+            border-radius: 100%;
+            padding: 5px 8px;
+            font-size: 12px;
+          }
         }
       }
-      ul {
+      span {
+        font-size: 14px;
+      }
+    }
+    ul {
+      display: flex;
+      flex-direction: column;
+      list-style-type: none;
+      gap: 10px;
+      li {
+        font-size: 15px;
         display: flex;
-        flex-direction: column;
-        list-style-type: none;
-        gap: 10px;
-        li {
-          font-size: 15px;
-          display: flex;
-          justify-content: space-between;
-          color: gray;
-          &:last-of-type {
-            color: black;
-          }
+        justify-content: space-between;
+        color: gray;
+        &:last-of-type {
+          color: black;
         }
       }
     }
+  }
+  form {
+   
     .phone{
       display: flex;
       flex-direction: column;
       gap: 10px;
     }
     .checkout-submit{
-      position: absolute;
+      /* position: absolute;
       bottom: -60px;
-      right: 100px;
+      right: 100px; */
+      margin-top: 20px;
       width: 30%;
     }
     
