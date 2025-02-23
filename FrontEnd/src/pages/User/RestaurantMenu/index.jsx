@@ -13,6 +13,8 @@ import * as Yup from "yup";
 import { useGetBasketsQuery, usePostBasketMutation } from '../../../Redux/services/BasketCreateApi';
 import { useDispatch, useSelector } from 'react-redux';
 import { decrement, increment } from '../../../Redux/slice/CounterSlice';
+import ReservationCard from '../../../components/user/ReservationCard';
+import { useGetDiscountFoodsQuery } from '../../../Redux/services/DiscounCreateApi';
 
 function RestaurantMenu() {
   const [value, setValue] = useState(0);
@@ -22,6 +24,11 @@ function RestaurantMenu() {
   const [modalMenu, setModalMenu] = useState(null)
   const [postBasket] = usePostBasketMutation()
   const count = useSelector(state => state.counter.value)
+  const [reserv, setReserv] = useState(false)
+
+  const { data: discountData, isLoading: discountLoading, isError: discountError } = useGetDiscountFoodsQuery()
+
+
 
   const dispatch = useDispatch()
   const handleChange = (event, newValue) => {
@@ -35,13 +42,20 @@ function RestaurantMenu() {
   if (isError) {
     return <h3>Error loading restaurant data</h3>;
   }
+  if (discountLoading) {
+    return <h3>...Loading</h3>;
+  }
 
+  if (discountError) {
+    return <h3>Error loading DiscountFoods data</h3>;
+  }
+  console.log(discountData);
 
   // !modal
 
   function ModalOpen(menu) {
     if (modal) {
-      
+
       setModal(false)
       refetch()
 
@@ -72,7 +86,7 @@ function RestaurantMenu() {
             </div>
             <div className="restaurant_desc">
               <div className='table_info'>
-                <button><FaTable /> Table Order</button>
+                <button onClick={() => setReserv(true)}><FaTable /> Table Order</button>
                 <span><FaInfoCircle /></span>
               </div>
               <h4>{data.name}</h4>
@@ -272,7 +286,15 @@ function RestaurantMenu() {
           </div>
         )
       }
+      {/* reservation */}
+      {
+        reserv && (
+          <div>
 
+            <ReservationCard />
+          </div>
+        )
+      }
     </div>
   );
 }

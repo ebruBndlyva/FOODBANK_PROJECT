@@ -6,7 +6,10 @@ import { MenuApi } from "./MenuCreateApi";
 import { BasketApi } from "./BasketCreateApi";
 import { CouponApi } from "./CouponCreateApi";
 import { OrderApi } from "./OrderCreateApi";
+import { TableApi } from "./TableCreateApi";
+import { ReservApi } from "./ReservCreateApi";
+import { DiscountApi } from "./DiscounCreateApi";
 
-const apis = [UserApi, RestaurantApi,CuisineApi,CategoryApi,MenuApi,BasketApi,CouponApi,OrderApi];
+const apis = [UserApi, RestaurantApi,CuisineApi,CategoryApi,MenuApi,BasketApi,CouponApi,OrderApi,TableApi,ReservApi,DiscountApi];
 
 export default apis;

@@ -15,6 +15,7 @@ import { couponRouter } from "./routers/CouponRouter.js"
 import { orderRouter } from "./routers/OrderRouter.js"
 import { tableRouter } from "./routers/TableRouter.js"
 import { reservRouter } from "./routers/ReservationRouter.js"
+import { discountRouter } from "./routers/DiscountFoodRouter.js"
 dotenv.config()
 app.use(express.json())
 app.use(cors())
@@ -33,6 +34,7 @@ app.use("/api/coupon", couponRouter)
 app.use("/api/order", orderRouter)
 app.use("/api/table", tableRouter)
 app.use("/api/reservation",reservRouter)
+app.use("/api/discount-food",discountRouter)
 //! listen code
 app.listen(port, () => {
     console.log(`Project is listening on port ${port}!`);

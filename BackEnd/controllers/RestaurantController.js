@@ -61,6 +61,7 @@ export const RestaurantController = {
             const cuisineExsist = await CuisineModel.findById(cuisine)
             const menuExsist = await MenuItemModel.findById(menu)
             const ownerExsist = await UserModel.findById(owner)
+            console.log(ownerExsist.email);
             if (!menuExsist && !cuisineExsist && !ownerExsist) {
                 return res.status(400).send({ message: 'Invalid menu ID' })
             }

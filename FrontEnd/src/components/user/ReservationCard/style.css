@@ -1,0 +1,105 @@
+.custom-swal-popup {
+  z-index: 9999 !important;
+  position: relative !important; 
+}
+.overlay {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.reservation_wrapper {
+  width: 500px;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  background-color: white;
+  border-radius: 20px;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1200;
+}
+.reserv-head {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  button {
+    position: absolute;
+    right: 10px;
+    top: 0px;
+    background-color: white;
+    color: #ed2049;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    &:hover {
+      background-color: #ed2049;
+      color: white;
+    }
+  }
+  h3 {
+    font-weight: 600;
+    text-align: center;
+  }
+  img {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+
+  button {
+    width: 100%;
+  }
+  .guest-wrapper {
+    display: flex;
+
+    justify-content: space-between;
+    .guest {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+
+      border-radius: 20px;
+      box-shadow: 0px 0px 10px #cc6c7f;
+      button {
+        background-color: transparent;
+        color: black;
+        border-radius: 0;
+        padding: 5px 10px;
+      }
+    }
+  }
+  .times {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+
+    button {
+      box-shadow: 0px 0px 5px gray;
+      background-color: transparent;
+      border-radius: 0;
+      padding: 5px;
+      color: #5c5b5c;
+      font-size: 14px;
+    }
+  }
+}
+

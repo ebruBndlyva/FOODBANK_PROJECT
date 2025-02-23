@@ -52,7 +52,7 @@ function CheckoutForm({ checkoutData }) {
                         paymentMethodId: paymentMethod.id,
                     };
 
-                    // await postOrder(orderDetails);
+                    await postOrder(orderDetails);
                     console.log(orderDetails);
                 } else {
                     const orderDetails = {

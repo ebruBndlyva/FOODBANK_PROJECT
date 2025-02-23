@@ -6,6 +6,11 @@ const ReservationSchema = new mongoose.Schema({
         ref: "user",
         required: true
     },
+    restaurant: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "restaurants",
+        required: true
+    },
     phone: { type: String, required: true },
     table: {
         type: mongoose.Schema.Types.ObjectId,
@@ -17,6 +22,7 @@ const ReservationSchema = new mongoose.Schema({
         required: true
     },
     date: { type: Date, required: true },
+    timeSlot: { type: String, required: true },
     status: { type: String, enum: ["Pending", "Confirmed", "Cancelled"], default: "Pending" }
 }, { timestamps: true });
 

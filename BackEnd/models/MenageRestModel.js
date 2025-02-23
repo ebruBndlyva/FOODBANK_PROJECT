@@ -41,7 +41,7 @@ const TableSchema = new mongoose.Schema({
     status: { type: String, required: true, enum: ["Active", "Inactive"], default: "Active" },
     capacity: { type: Number, required: true }
 });
-
+ 
 TableSchema.index({ restaurant: 1, name: 1 }, { unique: true });
 export const TableModel = mongoose.model("tables", TableSchema);
 
